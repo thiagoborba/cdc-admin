@@ -7,6 +7,7 @@ import BotaoSubmitCustomizado from './components/BotaoSubmitCustomizado'
 
 const url = "https://cdc-react.herokuapp.com/api/autores";
 
+
 class App extends Component {
 
   constructor() {
@@ -49,11 +50,12 @@ class App extends Component {
     })
   }
 
-  setNome = e => this.setState({nome:e.target.value});
+  // setNome = e => this.setState({nome:e.target.value});
 
-  setEmail = e => this.setState({email:e.target.value});
+  // setEmail = e => this.setState({email:e.target.value});
 
-  setSenha = e => this.setState({senha:e.target.value});
+  // setSenha = e => this.setState({senha:e.target.value});
+
 
   render() {       
     return (
@@ -121,6 +123,7 @@ class App extends Component {
                       <table className="pure-table">
                         <thead>
                           <tr>
+                            <th>ID</th>
                             <th>Nome</th>
                             <th>email</th>
                           </tr>
@@ -128,12 +131,17 @@ class App extends Component {
                         <tbody>
                           {
                             this.state.lista.map(function(autor){
-                              return (
-                                <tr key={autor.id}>
-                                  <td>{autor.nome}</td>
-                                  <td>{autor.email}</td>
-                                </tr>
-                              );
+                              if(autor.nome==='thiago borba'){
+                                return (
+                                  <tr key={autor.id}>
+                                    <td>{autor.id}</td>
+                                    <td>{autor.nome}</td>
+                                    <td>{autor.email}</td>
+                                  </tr>
+                                );
+                              }
+                              return false
+                              
                             })
                           }
                         </tbody>
